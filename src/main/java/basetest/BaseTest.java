@@ -8,7 +8,7 @@ import static webdriversingleton.WebDriverSingleton.quit;
 
 public class BaseTest {
     protected final static String BASE_URL = System.getProperty(
-            "url", "http://catalog.onliner.by/");
+            "url", "http://the-internet.herokuapp.com/status_codes");
 
     @BeforeMethod
     public void setup() {

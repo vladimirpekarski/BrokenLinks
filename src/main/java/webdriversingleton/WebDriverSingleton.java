@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 public class WebDriverSingleton {
     private static Map<Long, WebDriver> driverBus = new ConcurrentHashMap<>();
-    private WebDriverSingleton() {};
+    private WebDriverSingleton() {}
 
     public static WebDriver getWebdriver() {
         if (driverBus.containsKey(Thread.currentThread().getId())) {

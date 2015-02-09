@@ -11,12 +11,12 @@ import java.net.URL;
 import java.util.*;
 
 import static webdriversingleton.WebDriverSingleton.getWebdriver;
-
+// Can be named like "LinkVerification", but not BrokenLink
 public class BrokenLink {
-    public static List<String> uncheckedLinks = new ArrayList();
+    public static List<String> uncheckedLinks = new ArrayList<>(); // let them be encapsulated
     public static Map<String, Integer> brokenLinks = new HashMap<>();
 
-    private static List<WebElement> getUrlsAsWebElements() {
+    private static List<WebElement> getUrlsAsWebElements() { //move all private methods to the bottom
         return getWebdriver().findElements(By.cssSelector("a[href]"));
     }
 
@@ -30,6 +30,9 @@ public class BrokenLink {
         return urls;
     }
 
+    // let name be checkLinks(), it should return something - true/false or a map itself
+    // make another one checkLinks(List<String> links)
+    // better make a separate method for verifying one link and returning result like MAP Link-> Map "code" -> code, "message" -> msg
     public static void checkBrokenLinks() {
         for(String url: getUrlsAsString()) {
             try {

@@ -16,7 +16,7 @@ public class BrokenLinkTest extends BaseTest{
             Assert.fail("There are some link with response more than 400");
         }
 
-        if(BrokenLink.uncheckedLinks.size() > 0) {
+        if(BrokenLink.uncheckedLinks.size() > 0) { // just for debugging, in real test should be removed
             printUncheckedLinks();
         }
 

@@ -12,25 +12,11 @@ import java.util.*;
 
 import static webdriversingleton.WebDriverSingleton.getWebdriver;
 
-public class BrokenLink {
-    public static List<String> uncheckedLinks = new ArrayList();
+public class LinkVerification {
+    private static List<String> uncheckedLinks = new ArrayList();
     public static Map<String, Integer> brokenLinks = new HashMap<>();
 
-    private static List<WebElement> getUrlsAsWebElements() {
-        return getWebdriver().findElements(By.cssSelector("a[href]"));
-    }
-
-    private static List<String> getUrlsAsString() {
-        List<String> urls = new ArrayList<>();
-
-        for (WebElement webElement: getUrlsAsWebElements()) {
-            urls.add(webElement.getAttribute("href"));
-        }
-
-        return urls;
-    }
-
-    public static void checkBrokenLinks() {
+    public static void checkLinks() {
         for(String url: getUrlsAsString()) {
             try {
                 if(url.startsWith("https://")) {
@@ -71,5 +57,19 @@ public class BrokenLink {
         for(String url : uncheckedLinks) {
             System.out.println("Unchecked URL : " + url);
         }
+    }
+
+    private static List<WebElement> getUrlsAsWebElements() {
+        return getWebdriver().findElements(By.cssSelector("a[href]"));
+    }
+
+    private static List<String> getUrlsAsString() {
+        List<String> urls = new ArrayList<>();
+
+        for (WebElement webElement: getUrlsAsWebElements()) {
+            urls.add(webElement.getAttribute("href"));
+        }
+
+        return urls;
     }
 }
